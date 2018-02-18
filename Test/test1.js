@@ -1,3 +1,3 @@
 function test1 (){
-    return 'test'
+    return 'test 2'
 }

@@ -13,3 +13,10 @@ function printArray(stringArray) {
 
 //printArray(['One', 'Two', 'Three', 'Four', 'Five', '-'])
 printArray(['How about no?', 'I', 'will', 'not', 'do', 'it!', '_'])
+
+
+function solve(arr){
+    let delimiter = arr.pop()
+    console.log(arr.join(delimiter))
+}
+solve(['One', 'Two', 'Three', 'Four', 'Five', '-'])

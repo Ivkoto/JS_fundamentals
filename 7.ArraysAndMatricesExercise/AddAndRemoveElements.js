@@ -16,9 +16,7 @@ function addRemoveElements(commands) {
     });
 
     if (result.length > 0) {
-        result.forEach(element => {
-            console.log(element)
-        });
+        console.log(result.join('\n'))
     } else {
         console.log('Empty')
     }

@@ -1,3 +1,3 @@
-function magicMatrix(){
-    
+function rew(arr) {
+   
 }

@@ -1,23 +1,22 @@
-function rew(arr) {
-    let initialSum = arr[0].reduce((a, b) => a + b, 0);
+function rew(matrix) {
+    let initialSum = matrix[0].reduce((a, b) => a + b);
 
-    for (let row = 1; row < arr.length; row++) {
-        let rowSum = arr[row].reduce((a, b) => a + b, 0)
-        if (rowSum !== initialSum) {
+    for (let row = 1; row < matrix.length; row++) {
+        let curSum = matrix[row].reduce((a, b) => a + b);
+        if (curSum !== initialSum) {
             return false;
         }
     }
 
-    for (let elemIndex = 0; elemIndex < arr[0].length; elemIndex++) {
-        let colSum = 0;
-        for (let colIndex = 0; colIndex < arr.length; colIndex++) {
-            colSum += arr[colIndex][elemIndex]
+    for (let col = 0; col < matrix[0].length; col++) {
+        curSum = 0;
+        for (let elemIndex = 0; elemIndex < matrix.length; elemIndex++) {
+            curSum += matrix[col][elemIndex];            
         }
-        if (colSum !== initialSum) {
+        if (curSum !== initialSum) {
             return false;
         }
     }
-
     return true;
 };
 

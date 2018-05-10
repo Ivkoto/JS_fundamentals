@@ -4,15 +4,38 @@ function spiralMatrix(rows, cols) {
     let matrix = fillMatrixWithZeros(rows, cols);
     let curRow = 0;
     let curCol = 0;
-
-    while (initialNum < targerNum) {
-        for (let idx = 0; idx < cols; idx++) {
-            matrix[curRow][curCol] = initialNum++;
-            //ToDo
+    let rotations = 0;
+    
+    while (initialNum <= targerNum) {
+        //top row
+        for (let idx = rotations; idx < cols - rotations; idx++) {
+            matrix[curRow][curCol++] = initialNum++;
         }
+
+        //right col downwards
+        curCol -= 1;
+        for (let idx = ++curRow; idx <= rows - 1 - rotations; idx++) {
+            matrix[curRow++][curCol] = initialNum++;
+        }
+
+        //bottom row leftwards
+        curRow -= 1;
+        for (let idx = --curCol; idx >= rotations; idx--) {
+            matrix[curRow][curCol--] = initialNum++;
+        }
+
+        //left col upwards
+        curCol += 1;
+        for (let idx = --curRow; idx > rotations; idx--) {
+            matrix[curRow--][curCol] = initialNum++;
+        }
+
+        rotations++;
+        curCol++;
+        curRow++;
     }
 
-    return matrix;
+    printMatrix(matrix);
 
     function printMatrix(matrix) {
         console.log(matrix.map(e => e.join(' ')).join('\n'));
@@ -27,4 +50,4 @@ function spiralMatrix(rows, cols) {
     }
 }
 
-console.log(spiralMatrix(5, 5));
+spiralMatrix(5, 5);

@@ -1,10 +1,10 @@
-function diagonalAttaack(arr) {
+function diagonalAttack(arr) {
     let matrix = [];
     let rightDiagonalSum = 0;
-    let leftDiagonalSum = 0;
+    let leftDiagonalSum = 0;    
 
-    for (let idx = 0; idx < arr.length; idx++) {
-        matrix[idx] = arr[idx].split(' ').map(Number);
+    for (const elem of arr) {
+        matrix.push(elem.split(' ').map(Number));
     }
 
     let counter = matrix[0].length - 1;
@@ -30,12 +30,13 @@ function diagonalAttaack(arr) {
         }
         printMatrix(matrix);
     }
+
     function printMatrix(matrix) {
         console.log(matrix.map(e => e.join(' ')).join('\n'));
     }
 }
 
-diagonalAttaack(['5 3 12 3 1',
+diagonalAttack(['5 3 12 3 1',
     '11 4 23 2 5',
     '101 12 3 21 10',
     '1 4 5 2 2',

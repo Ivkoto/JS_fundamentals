@@ -7,16 +7,14 @@ function diagonalAttack(arr) {
         matrix.push(elem.split(' ').map(Number));
     }
 
-    let counter = matrix[0].length - 1;
+    let rightDiagIdx = matrix[0].length - 1;
 
     for (let idx = 0; idx < matrix[0].length; idx++) {
         leftDiagonalSum += matrix[idx][idx];
-        rightDiagonalSum += matrix[idx][counter--];
+        rightDiagonalSum += matrix[idx][rightDiagIdx--];
     }
 
-    if (leftDiagonalSum !== rightDiagonalSum) {
-        printMatrix(matrix);
-    } else {
+    if (leftDiagonalSum === rightDiagonalSum) {
         let index1 = 0;
         let index2 = matrix[0].length - 1;
         for (let rowIdx = 0; rowIdx < matrix.length; rowIdx++) {
@@ -28,6 +26,8 @@ function diagonalAttack(arr) {
             index1++;
             index2--;
         }
+        printMatrix(matrix);
+    } else {
         printMatrix(matrix);
     }
 

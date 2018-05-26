@@ -3,14 +3,10 @@ function getUsername(emails){
     for (const email of emails) {
         let emailDetails = email.split('@');
         let username = emailDetails[0] + '.';
-        let domain = emailDetails[1];
-        let curIndex = 0;
-        let dotIndex = 0;
-
-        while(dotIndex > -1){
-            username += domain.substr(0, 1);
-            dotIndex = domain.indexOf('.');
-            domain = domain.substr(dotIndex + 1);
+        let domain = emailDetails[1].split('.');
+        
+        for (const elem of domain) {
+            username += elem[0];
         }
 
         userList.push(username);

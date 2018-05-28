@@ -5,9 +5,9 @@ function getUsername(emails){
         let username = emailDetails[0] + '.';
         let domain = emailDetails[1].split('.');
         
-        for (const elem of domain) {
-            username += elem[0];
-        }
+        domain.forEach(element => {
+            username += element[0]
+        });
 
         userList.push(username);
     }
